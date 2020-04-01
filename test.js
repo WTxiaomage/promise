@@ -1,14 +1,25 @@
 let MyPromise = require('./MyPromise')
 
 let promise = new MyPromise((resolve, reject) => {
-  resolve(123)
+  setTimeout(() => {
+    resolve(123)
+  }, 1000);
 })
 
 promise.then(
   function(value) {
-    console.log('value', value)
+    console.log('value1', value)
   },
   function(reason) {
-    console.log('reason', reason)
+    console.log('reason1', reason)
+  }
+)
+
+promise.then(
+  function(value) {
+    console.log('value2', value)
+  },
+  function(reason) {
+    console.log('reason2', reason)
   }
 )
